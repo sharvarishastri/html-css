@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="form.css">
+<title>Form Details</title>
+<body>
+    <div class="mainClass">
+        <div class="boxClass">
+            <div>
+            <button id="submitBtn" class="buttonClass" onclick="onHandleEnter()">Enter Details</button>  
+            <div class="displayText">
+                <span id="fName_Display"></span><br>
+                <span id="lName_Display"></span><br>
+                <span id="contact_Display"></span><br>
+              </div>
+            </div>      
+        </div>
+
+        <div id="dialogBox" class="dialogClass">
+            <div class="dialogBody">
+            <div class="rowClass">
+                <label for="fname">First Name</label>
+                <input autofocus type="text" id="fname" name="firstName" placeholder="First Name" class="inputClass">
+              </div>
+              <div class="rowClass">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastName" placeholder="Last Name" class="inputClass">
+              </div>
+              <div class="rowClass">
+                <label for="cnNo">Contact No</label>
+                <input type="text" id="cn" name="Contact Number" placeholder="Contact Number" class="inputClass">
+              </div>            
+              <div class="rowClass">
+              <button id="close" class="commonClass cancelClass" onclick="onHandleClose()">Close</button>
+              <button id="submitBtn" class="commonClass submitClass" onclick="handleSubmit()">Submit</button>
+              </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <script>
+        let dialogOpen = document.getElementById("dialogBox");
+        function onHandleEnter() {
+          dialogOpen.style.display = "flex";
+        }
+        function onHandleClose() {
+          dialogOpen.style.display = "none";
+        }
+        function handleSubmit() {
+          let fName = document.getElementById("fname").value;
+          let lName = document.getElementById("lname").value;
+          let contactNo = document.getElementById("cn").value;
+          fName_Display.innerHTML = "First Name:" + fName;
+          lName_Display.innerHTML = "Last Name:" + lName;
+          contact_Display.innerHTML = "Contact Number:" + contactNo;
+          onHandleClose();
+        }
+        window.onclick = function (event) {
+          if (event.target == dialogOpen) {
+            dialogOpen.style.display = "none";
+          }
+        }
+      </script>
+</body>
+</html>
